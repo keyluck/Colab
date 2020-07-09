@@ -1,7 +1,7 @@
 {
-  "name": "storybooks",
+  "name": "colab",
   "version": "1.0.0",
-  "description": "App to create private and public stories",
+  "description": "App to manage and organize group projects",
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app",
