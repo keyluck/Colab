@@ -4,7 +4,8 @@
   "description": "App to manage and organize group projects",
   "main": "app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app",
+    "start": "react-scripts start",
+    "test": "cross-env NODE_ENV=production node app",
     "dev": "cross-env NODE_ENV=development nodemon app"
   },
   "author": "Nick Luckey",

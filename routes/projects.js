@@ -29,7 +29,7 @@ router.post('/', ensureAuth, async (req, res) => {
 // @route   GET /projects
 router.get('/', ensureAuth, async (req, res) => {
     try {
-        const projects = await Project.find({ status: 'incomplete' })
+        const projects = await Project.find({ status: 'Incomplete' })
             .populate('user')
             .sort({ createdAt: 'desc' })
             .lean()
@@ -141,7 +141,7 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
    try {
     const projects = await Project.find({
         user: req.params.userId,
-        status: 'incomplete'
+
     })
     .populate('user')
     .lean()

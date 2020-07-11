@@ -2,10 +2,11 @@
     <div class="col s12 m8">
         <h3>{{project.title}}
             <small>{{{editIcon project.user user project._id false}}}</small>
+
         </h3>
         <div class="card story">
             <div class="card-content">
-                <span class="card-title">{{formatDate date 'MMMM Do YYYY, h:mm:ss a'}}</span>
+                <span class="card-title">{{formatDate project.due 'MMMM Do YYYY, h:mm:ss a'}}</span>
                 {{{project.body}}}
             </div>
         </div>

@@ -13,12 +13,19 @@ const ProjectSchema = new mongoose.Schema({
     },
     status: {
         type: String, 
-        default: 'incomplete',
-        enum: ['incomplete', 'complete'],
+        default: 'Incomplete',
+        enum: ['Incomplete', 'Complete'],
     },
     user: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User'
+    },
+    members: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Members'
+    }],
+    due: {
+        type: Date,
     },
     createdAt: {
         type: Date,
