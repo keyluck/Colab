@@ -43,5 +43,17 @@ module.exports = {
             ' selected="selected"$&'
         )
     },
+    addMemberIcon: function(projectUser, loggedUser, projectId, floating = true) {
+        if(projectUser._id.toString() == loggedUser._id.toString()) {
+            if (floating) {
+                return `<a href="/projects/group/${projectId}" class="btn-floating halfway-fab blue"><i class="fas fa-user-plus fa-small"></i></a>` 
+            } else {
+                return `<a href="/projects/group/${projectId}"> <i class="fas fa-user-plus"></i></a>`
+            }
+            
+        } else {
+            return ''
+        }
+    },
 
 }
