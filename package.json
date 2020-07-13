@@ -4,7 +4,7 @@
   "description": "App to manage and organize group projects",
   "main": "app.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node app.js",
     "test": "cross-env NODE_ENV=production node app",
     "dev": "cross-env NODE_ENV=development nodemon app"
   },
