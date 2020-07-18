@@ -22,7 +22,7 @@ const ProjectSchema = new mongoose.Schema({
     },
     members: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Members'
+        ref: 'Member'
     }],
     due: {
         type: Date,
