@@ -9,16 +9,8 @@
             </div>
 
         </div>
-        {{#if projects.members}}
-        <div class="row">
-                <h5>Project's Members</h5>
-                <ul>
-                    {{#each project.members}}
-                           <li>{{this}}</li>>
-                    {{/each}}
-                </ul>
-        </div> 
-        {{/if}}
+        
+
         <div class="row">
             <div class="input-field">
                 <select id="status" name="status">
@@ -41,11 +33,7 @@
         <div class="row">
             <div class="input-field">
                 <span class="card-title">Add New Group Member 
-                    <div class="input-field">
-                        <input type="email" id="email" name="email">
-                        <label for="email">Email</label>
-                    </div>
-                    <small> {{{addMemberIcon project.user user project._id false}}}</small>
+                    
                 </span>
             </div>
         </div>
