@@ -9,16 +9,16 @@
             </div>
 
         </div>
-
+        {{#if projects.members}}
         <div class="row">
                 <h5>Project's Members</h5>
                 <ul>
-                    {{#each projects.members}}
+                    {{#each project.members}}
                            <li>{{this}}</li>>
                     {{/each}}
                 </ul>
         </div> 
-
+        {{/if}}
         <div class="row">
             <div class="input-field">
                 <select id="status" name="status">
