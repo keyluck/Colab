@@ -22,11 +22,16 @@ const ProjectSchema = new mongoose.Schema({
     },
     members: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Member'
+        ref: 'User'
     }],
     due: {
         type: Date,
     },
+    tasks: [{
+        body: { type: String, required: true},
+        assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        status: { type: String, default: 'Incomplete', enum: ['Incomplete', 'Complete']},
+    }],
     createdAt: {
         type: Date,
         default: Date.now

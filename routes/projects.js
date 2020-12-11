@@ -108,7 +108,8 @@ router.put('/:id', ensureAuth, async (req, res) => {
             res.redirect('/projects')
         } else {
             project = await Project.findOneAndUpdate({ _id: req.params.id }, 
-                req.body, {
+                req.body,
+                req.members, {
                     new: true,
                     runValidators: true,
         })
@@ -155,34 +156,7 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
    }
 })
 
-// @desc    Update project's members
-// @route   PUT /projects/group/:id
-router.put('/group/:id', ensureAuth, async (req, res) => {
-    
-    try {
-        let project = await Project.findById(req.params.id).lean()
 
-
-        if(!project) { 
-            return res.render('error/404')
-        }
-    
-        if(project.user != req.user.id) {
-            res.redirect('/projects')
-        } else {
-            project = await Project.findOneAndUpdate({ _id: req.params.id }, 
-                req.members, {
-                    new: true,
-                    runValidators: true,
-        })
-            res.redirect('/dashboard')
-        }
-    } catch(err) {
-        console.error(err)
-        return res.render('error/500') 
-    }
-      
-})
 
 
 module.exports = router

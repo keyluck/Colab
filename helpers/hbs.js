@@ -43,26 +43,6 @@ module.exports = {
             ' selected="selected"$&'
         )
     },
-    addMemberIcon: function(projectMember, loggedUser, projectId, floating = true) {
-
-        /* TODO
-
-            If projectMember is not already a group member then send Email to invite
-            Use email confirmation link to accept invitation to group project
-            then Add user to project's members 
-         */
-        if(projectUser._id.toString() == loggedUser._id.toString()) {
-            if (floating) {
-                return `<a href="/projects/group/${projectId}" class="btn-floating halfway-fab blue"><i class="fas fa-user-plus fa-small"></i></a>` 
-            } else {
-                return `<a href="/projects/group/${projectId}"> <i class="fas fa-user-plus"></i></a>`
-            }
-            
-        } else {
-            return ''
-        }
-    },
-
-  
+    
 
 }
