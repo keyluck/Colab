@@ -28,4 +28,23 @@
     </div>
     
 
+    <div class="col s12 m8">
+        <h4>Tasks</h4>
+         {{#each projects.tasks}}
+            <div class="card">
+                
+                <div class="card-content center-align">
+                    <h5>{{body}}</h5> </br>
+                    <h6>{{assignedTo}}</h6>
+                    <br>
+                   
+                </div>
+               
+            </div>
+        </div>
+        {{else}}
+            <p>No tasks to display</p>
+        {{/each}}
+    </div>
+
 </div>
