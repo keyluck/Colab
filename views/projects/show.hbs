@@ -35,15 +35,17 @@
                 
                 <div class="card-content center-align">
                     <h5>{{body}}</h5> </br>
-                    <h6>{{assignedTo}}</h6>
-                    <br>
+                    <h6>{{assignedTo}}</h6> </br>
+                    
                    
                 </div>
                
             </div>
         </div>
         {{else}}
-            <p>No tasks to display</p>
+            <div class="card"></div>
+                <p>No tasks to display</p>
+            </div>
         {{/each}}
     </div>
 

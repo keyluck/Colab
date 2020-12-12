@@ -1,6 +1,7 @@
 <h1>Projects</h1>
 <div class="row">
     {{#each projects}}
+        {{#if (myProjects user ../user)}}
         <div class="col s12 m4">
             <div class="card">
                 <div class="card-image">
@@ -20,6 +21,8 @@
                 </div>
             </div>
         </div>
+        {{else}}
+
     {{else}}
         <p>No projects to display</p>
     {{/each}}
