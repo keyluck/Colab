@@ -109,10 +109,8 @@ router.put('/:id', ensureAuth, async (req, res) => {
         } else {
             project = await Project.findOneAndUpdate({ _id: req.params.id }, 
                 req.body,
-                req.members, {
-                    new: true,
-                    runValidators: true,
-        })
+                
+        )
             res.redirect('/dashboard')
         }
     } catch(err) {
