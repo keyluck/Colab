@@ -93,12 +93,12 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
 
 
 // @desc    Update project
-// @route   PUT /projects/:id
+// @route   PUT /projects/edit/:id
 router.put('/:id', ensureAuth, async (req, res) => {
     
     try {
         let project = await Project.findById(req.params.id).lean()
-
+        let expId=req.body;
 
         if(!project) { 
             return res.render('error/404')
@@ -107,10 +107,15 @@ router.put('/:id', ensureAuth, async (req, res) => {
         if(project.user != req.user.id) {
             res.redirect('/projects')
         } else {
-            project = await Project.findOneAndUpdate({ _id: req.params.id }, 
+            project = await Project.findOneAndUpdate({ _id: req.params.id },
                 req.body,
-                
+                {  
+                    new: true, 
+                    runValidators: true
+                }
+            
         )
+
             res.redirect('/dashboard')
         }
     } catch(err) {

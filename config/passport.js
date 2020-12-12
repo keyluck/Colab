@@ -3,11 +3,18 @@ const mongoose = require('mongoose')
 const User = require('../models/User')
 
 module.exports = function (passport) {
+    var callbackVar
+    if(process.env.NODE_ENV === 'development') {
+        callbackVar = 'http://localhost:3000/auth/google/callback'
+    } else {
+        callbackVar = 'https://co-lab-app.herokuapp.com/auth/google/callback'
+    }
+    
     passport.use(
         new GoogleStrategy({
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: 'https://co-lab-app.herokuapp.com/auth/google/callback'
+            callbackURL: callbackVar,
             },
         async (accessToken, refreshToken, profile, done) => {
             const newUser = {
