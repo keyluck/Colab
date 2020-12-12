@@ -43,14 +43,7 @@ module.exports = {
             ' selected="selected"$&'
         )
     },
-    myProjects: function(projectUser, loggedUser, projectId) {
-        if(projectUser._id.toString() == loggedUser._id.toString())
-        {
-            return projectId
-        } else {
-            return ''
-        }
-    },
+    
     
 
 }
