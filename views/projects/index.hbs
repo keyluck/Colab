@@ -1,7 +1,7 @@
 <h1>Projects</h1>
 <div class="row">
     {{#each projects}}
-        {{#if (myProjects user ../user)}}
+        {{#if (myProjects user ../user _id)}}
         <div class="col s12 m4">
             <div class="card">
                 <div class="card-image">
