@@ -26,29 +26,36 @@
             </div>
         </div>
     </div>
-    
-
+</div>
+ <table class="striped">
     <div class="col s12 m8">
         <h4>Tasks
             <small>{{{taskIcon project.user user project._id false}}}</small>
         </h4>
-         {{#each projects.tasks}}
-            <div class="card">
-                
-                <div class="card-content center-align">
-                    <h5>{{body}}</h5> </br>
-                    <h6>{{assignedTo}}</h6> </br>
-                    
-                   
-                </div>
-               
-            </div>
-        </div>
-        {{else}}
+        <thead>
+            <tr>
+                <th>Task Description</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each project.tasks}}
+                <tr>
+                    <td>{{this.description}}</td>
+                    <td>{{this.assignedTo}}</td>
+                    <td>{{this.status}}</td>
+                </tr>
+            {{else}}
             <div class="card"></div>
                 <p>No tasks to display</p>
             </div>
-        {{/each}}
-    </div>
+            {{/each}}
+        </tbody>       
 
-</div>
+    </div>
+</table>
+    
+    
+
+
