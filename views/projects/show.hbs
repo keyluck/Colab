@@ -32,6 +32,7 @@
         <h4>Tasks
             <small>{{{taskIcon project.user user project._id false}}}</small>
         </h4>
+        {{#if project.tasks}}
         <thead>
             <tr>
                 <th>Task Description</th>
@@ -39,6 +40,7 @@
                 <th>Status</th>
             </tr>
         </thead>
+        {{/if}}
         <tbody>
             {{#each project.tasks}}
                 <tr>
@@ -50,7 +52,7 @@
             <div class="card"></div>
                 <p>No tasks to display</p>
             </div>
-            {{/each}}
+        {{/each}}
         </tbody>       
 
     </div>
