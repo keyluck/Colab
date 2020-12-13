@@ -29,7 +29,9 @@
     
 
     <div class="col s12 m8">
-        <h4>Tasks</h4>
+        <h4>Tasks
+            <small>{{{taskIcon project.user user project._id false}}}</small>
+        </h4>
          {{#each projects.tasks}}
             <div class="card">
                 

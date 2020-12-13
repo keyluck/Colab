@@ -1,0 +1,29 @@
+<h3>Add New Task</h3>
+<div class="row">
+    <form action="/projects/tasks/{{project._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+                <h4>{{project.title}}</h4>
+                
+        </div>
+        
+
+        <div class="row">
+            <div class="input-field">
+                <h6>Task Description:</h6>
+                <input type="text" id="tasks" name="description">
+                <h6>Assign task to:</h6>
+                <input type="text" id="assigned" name="assignedTo">
+                
+                
+            </div>
+        </div>
+
+        
+        
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

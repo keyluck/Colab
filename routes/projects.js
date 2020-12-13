@@ -98,7 +98,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
     
     try {
         let project = await Project.findById(req.params.id).lean()
-        let expId=req.body;
 
         if(!project) { 
             return res.render('error/404')
@@ -159,7 +158,64 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
    }
 })
 
+// @desc    Show task page
+// @route   GET /projects/tasks/:id
+router.get('/tasks/:id', ensureAuth, async (req, res) => {
+    try {
+        const project = await Project.findOne({
+            _id: req.params.id
+        }).lean()
+    
+        if(!project) {
+            return res.render('error/404')
+        }
+    
+        if(project.user != req.user.id) {
+            res.redirect('/projects')
+        } else {
+            res.render('projects/tasks', {
+                project,
+            })
+        }
+    } catch(err) {
+        console.error(err)
+        return res.render('error/500') 
+    }
+})
 
 
+// @desc    Update project's tasks
+// @route   PUT /projects/tasks/:id
+router.put('/tasks/:id', ensureAuth, async (req, res) => {
+    
+    try {
+        let project = await Project.findById(req.params.id).lean()
+        
+
+        if(!project) { 
+            return res.render('error/404')
+        }
+    
+        if(project.user != req.user.id) {
+            res.redirect('/projects')
+        } else {
+            
+
+            project = await Project.findOneAndUpdate({_id:req.params.id},
+                { $push : {tasks : req.body}
+                }
+                )
+        
+            
+        console.log(req.body)
+             
+        res.redirect(`/projects/${req.params.id}`)
+        }
+    } catch(err) {
+        console.error(err)
+        return res.render('error/500') 
+    }
+      
+})
 
 module.exports = router

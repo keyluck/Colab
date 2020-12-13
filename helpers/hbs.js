@@ -43,7 +43,18 @@ module.exports = {
             ' selected="selected"$&'
         )
     },
-    
+    taskIcon: function (projectUser, loggedUser, projectId, floating = true) {
+        if(projectUser._id.toString() == loggedUser._id.toString()) {
+            if (floating) {
+                return `<a href="/projects/tasks/${projectId}" class="btn-floating halfway-fab blue"><i class="fas fa-tasks fa-small"></i></a>` 
+            } else {
+                return `<a href="/projects/tasks/${projectId}"> <i class="fas fa-tasks"></i></a>`
+            }
+            
+        } else {
+            return ''
+        }
+    },
     
 
 }

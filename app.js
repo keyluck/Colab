@@ -22,8 +22,9 @@ connectDB()
 const app = express()
 
 // Body parser
-app.use(express.urlencoded({ extended: false}))
+app.use(express.urlencoded( { extended: true}))
 app.use(express.json())
+
 
 // Method override
 app.use(methodOverride(function (req, res) {
@@ -41,7 +42,8 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 // Handlebars Helper
-const { formatDate, truncate, stripTags, editIcon, select} = require('./helpers/hbs')
+const { formatDate, truncate, stripTags, editIcon, select, taskIcon} = require('./helpers/hbs')
+const { resolveSoa } = require('dns')
 
 // Handlebars 
 app.engine(
@@ -53,7 +55,7 @@ app.engine(
             stripTags,
             editIcon,
             select,
-           
+            taskIcon,
             
         },
         defaultLayout: 'main', 

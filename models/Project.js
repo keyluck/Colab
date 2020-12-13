@@ -28,8 +28,9 @@ const ProjectSchema = new mongoose.Schema({
         type: Date,
     },
     tasks: [{
-        body: { type: String, required: true},
-        assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        description: { type: String, required: true},
+        //assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        assignedTo: { type: String },
         status: { type: String, default: 'Incomplete', enum: ['Incomplete', 'Complete']},
     }],
     createdAt: {
