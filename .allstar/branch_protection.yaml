@@ -1,10 +1,4 @@
 optConfig:
   optIn: true
-  optOutStrategy: false
-  disableRepoOverride: false
 action: issue
-enforceDefault: true
-requireApproval: true
-approvalCount: 1
 dismissStale: false
-blockForce: true
